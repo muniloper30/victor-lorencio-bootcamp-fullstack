@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Formulario de creación de cuenta" />
+    <title>Crear cuenta de alumno</title>
+  </head>
+  <body>
+    <header>
+      <h1>CREAR CUENTA DE ALUMNO</h1>
+      <p><strong>Introduce los datos del nuevo alumno</strong></p>
+    </header>
+    <main>
+      <!--Formulario de creación de nuevo alumno -->
+      <section id="form-section">
+        <form action="/register" method="post">
+          <label for="username">Nombre de usuario</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            minlength="2"
+            maxlength="50"
+            required
+          />
+          <label for="age">Edad</label>
+          <input type="number" name="age" id="age" min="2" max="100" required />
+          <p></p>
+          <!--Salto de línea-->
+          <label for="email">Correo electrónico</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="example@gmail.com"
+            required
+          />
+          <p></p>
+          <!--Salto de línea-->
+          <label for="password">Contraseña</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            minlength="8"
+            maxlength="64"
+            pattern="[A-Z]{2}[0-9]{4}"
+            title="Formato requerido: 2 letras mayúsculas y 4 dígitos"
+          />
+          <div></div>
+          <!--Salto de línea-->
+          <small>
+            Debe tener al menos 8 caracteres, una mayúscula y un número.
+          </small>
+          <p></p>
+          <!--Salto de línea-->
+          <label for="website">Web de interés (Portfolio/Linkedin)</label>
+          <input
+            type="url"
+            id="website"
+            name="website"
+            placeholder="https://ejemplo.com"
+            required
+          />
+          <p></p>
+          <!--Salto de línea-->
+          <div>
+            <input type="checkbox" id="terms" name="terms" required />
+            <label for="terms">
+              Aceptar los
+              <a href="/terminos" target="_blank">términos y condiciones</a>
+            </label>
+          </div>
+        <p></p> <!--Salto de línea-->
+          <fieldset style="display: inline">
+            <button type="submit">Crear nuevo alumno</button>
+            <button type="reset">Limpiar formulario</button>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
