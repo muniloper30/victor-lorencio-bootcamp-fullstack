@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Formulario con grupos semánticos" />
+    <title>Reserva de plaza en el bootcamp</title>
+  </head>
+  <body>
+    <header>
+      <h1>Formulario de Reserva</h1>
+      <p>
+        Rellena el siguiente formulario para no quedarte sin tu plaza en el
+        bootcamp de Java
+      </p>
+    </header>
+    <main>
+      <!--Sección de formulario de reserva-->
+      <section>
+        <article>
+          <form action="register" method="post">
+            <label for="full-name">Nombre completo</label>
+            <input
+              type="text"
+              name="full-name"
+              id="full-name"
+              minlength="2"
+              maxlength="64"
+              required
+            />
+
+            <label for="email">Correo electrónico</label>
+            <input type="email" name="email" id="email" required />
+            <div>
+              <br />
+              <label for="options">Elige tu modalidad para el bootcamp</label>
+              <select
+                name="options"
+                id="options"
+                aria-describedby="Elige la modalidad de bootcamp que mas se adapte a tus necesidades"
+                required
+              >
+                <option value="online">Online</option>
+                <option value="presencial">Presencial</option>
+                <option value="semi-presencial">Semi-Presencial</option>
+              </select>
+            </div>
+
+            <br />
+
+            <fieldset style="display: inline;">
+              <legend>Áreas de interes</legend>
+              <label
+                ><input
+                  type="checkbox"
+                  tabindex="20"
+                  name="frontend"
+                  value="frontend"
+                />
+                Frontend</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  tabindex="21"
+                  name="backend"
+                  value="backend"
+                />
+                Backend</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  tabindex="22"
+                  name="fullStack"
+                  value="fullStack"
+                />
+                Full Stack</label
+              >
+              <br>
+              <label
+                ><input
+                  type="checkbox"
+                  tabindex="22"
+                  name="devops"
+                  value="devops"
+                />
+                Devops</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  tabindex="22"
+                  name="ciberseguridad"
+                  value="ciberseguridad"
+                />
+                Seguridad Informática</label
+              >
+              <br>
+              <label
+                ><input
+                  type="checkbox"
+                  tabindex="22"
+                  name="videojuegos"
+                  value="videojuegos"
+                />
+                Desarrollo de videojuegos</label
+              >
+            </fieldset>
+
+            <fieldset aria-describedby="Describe tu motivación para participar">
+                <legend>Motivación</legend>
+                <textarea name="motivacion" id="motivacion" cols="80" rows="10"></textarea>
+            </fieldset>
+            <br>
+            <br>
+            <button type="submit">Enviar formulario</button>
+            <button type="reset">Limpiar formulario</button>
+          </form>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
