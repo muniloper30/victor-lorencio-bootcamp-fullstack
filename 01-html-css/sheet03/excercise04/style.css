@@ -1,0 +1,25 @@
+body {
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+p {
+  color: mediumvioletred;
+  font-style: italic;
+}
+
+/*El navegador lee en cascada de arriba abajo, por lo que
+ el estilo de los p se mantiene normal y no cursiva*/
+p {
+  font-style: normal;
+}
+
+section p {
+    color: blue;
+}
+
+.destacado {
+  color: gold;
+}
+
