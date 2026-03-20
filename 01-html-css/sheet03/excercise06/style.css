@@ -1,0 +1,23 @@
+:root {
+    --primary-color: #66d554;
+    --font-color: #121ec5;
+    --back-color: #fff777;
+    --espaciado-medio: 1.25rem;
+    --radio-border: 8px;
+}
+
+h1 {
+    color: var(--primary-color);
+}
+
+
+.card {
+    padding: var(--espaciado-medio);
+    border: 1px solid;
+    border-radius: var(--radio-border);
+    margin-bottom: var(--espaciado-medio)
+}
+
+.card h2 {
+    color: var(--font-color);
+}
