@@ -1,3 +1,7 @@
+header {
+    height: 50vh;
+}
+
 .title {
     font-size: 80px;
     text-align: center;
@@ -13,10 +17,11 @@ p {
 }
 
 .alert {
-    border: 2px solid;
+    text-align: center;
+    border: 3px solid;
     border-color: red;
     padding: 0.5rem;
-    display: inline;
+    width: 70%;
 }
 
 strong {
