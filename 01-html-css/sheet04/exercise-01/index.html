@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ejercicio 1 CSS Avanzado" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Ejercicio 1 CSS Avanzado</title>
+  </head>
+  <body>
+    <header>
+      <h1>Bienvenido al Ejercicio Nº1</h1>
+      <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Calendario </a>
+        <span
+          ><a href="#">Tareas pendientes<span>(3)</span></a></span
+        >
+      </nav>
+    </header>
+
+    <!--Sección principal-->
+    <main>
+      <section>
+        <article>
+          <h2>Es un subtitulo de la web para incluir contenido</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex rem
+            facere illum ipsum, architecto, nobis fugit accusantium optio
+            praesentium dolores provident, assumenda sequi. Aut dicta quisquam
+            repudiandae fuga modi officiis.
+          </p>
+        </article>
+
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi
+          veniam aspernatur blanditiis delectus quas quis odio dolorum labore
+          odit ex temporibus veritatis quod, repellat, incidunt ea molestias
+          aliquid tenetur cumque?
+        </p>
+
+        <article>
+          <h2>Es un subtitulo de la web para incluir contenido</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex rem
+            facere illum ipsum, architecto, nobis fugit accusantium optio
+            praesentium dolores provident, assumenda sequi. Aut dicta quisquam
+            repudiandae fuga modi officiis.
+          </p>
+        </article>
+      </section>
+
+      <!--Sección de formulario -->
+      <section class="form-section">
+        <h2>Inicia sesión</h2>
+        <form action="/login" method="post">
+          <label for="email">Correo electrónico</label>
+          <input type="email" name="email" id="email" />
+
+          <label for="username">Nombre de usuario</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            minlength="2"
+            maxlength="64"
+            required
+          />
+
+          <label for="password">Contraseña</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            minlength="8"
+            required
+          />
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

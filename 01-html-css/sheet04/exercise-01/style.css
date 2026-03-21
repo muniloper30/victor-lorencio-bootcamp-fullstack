@@ -1,0 +1,57 @@
+/* Estas  2 primeras reglas son para todo*/
+* {
+    box-sizing: border-box;
+}
+li {
+    list-style-type: none;
+}
+
+
+
+
+
+/***********/
+
+
+
+nav {
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+nav ul{
+   
+    
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+/* Compromación de especificidad con hijos directos*/
+nav a {
+    color: rgb(180, 107, 38);
+    font-size: 1.2rem;
+}
+
+nav > a {
+    color: rgb(38, 64, 180);
+    font-size: 1.2rem;
+}
+
+/*Se elimina el margen superior al párrafo que vaya justo después de cada h2 */
+h2 + p {
+  margin-top: 0;
+  background-color: yellow;
+}
+
+/* Estilo específico al input que tenga el atributo 'required' */
+input[required] {
+    border: 2px solid #e67e22;
+}
+
+/*Fondo diferente al input de tipo email */
+input[type="email"] {
+    background-color: #ebf5fb; 
+    border-color: #3498db;  
+}
