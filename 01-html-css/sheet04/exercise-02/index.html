@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="sn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ejercicio Nº2 CSS Avanzado" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Ejercicio Nº2 CSS Avanzado</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <a href="/inicio">Inicio</a>
+        <a href="/calendario">Calendario</a>
+      </nav>
+
+      <div class="auth-buttons">
+        <button>Login</button>
+        <button>Register</button>
+      </div>
+    </header>
+
+
+    <main>
+        <section class="main-section">
+             <h1>Bienvenido a la web del ejercicio Nº2</h1>
+
+             <article>
+                <p>Sigue estos pasos:</p>
+                <ul>
+                    <li>Primer paso</li>
+                    <li>Segundo paso</li>
+                    <li>Tercer paso</li>
+                    <li>Cuarto paso</li>
+                    <li>Quinto paso</li>
+                </ol>
+             </article>
+        </section>
+
+<!--Sección de formulario-->
+        <section class="form-section">
+            <form action="form" method="post">
+                <label for="username">Nombre de usuario</label>
+                <input type="text" name="username" id="username" minlength="2" maxlength="64" required>
+
+                <label for="conditions">Confirmar Asistencia</label>
+                <input type="checkbox" name="conditions" id="conditions">
+
+                <label for="alumnoFormacion">Alumno de la formación</label>
+                <input 
+                type="checkbox" 
+                id="alumnoFormacion" 
+                checked 
+                disabled
+                >
+            </form>
+        </section>
+    </main>
+
+  </body>
+</html>
