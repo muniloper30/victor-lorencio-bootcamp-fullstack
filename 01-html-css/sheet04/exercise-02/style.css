@@ -6,7 +6,7 @@
 }
 
 header {
-    background-color: rgb(160, 44, 44);
+    background-color: rgb(160 44 44);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
