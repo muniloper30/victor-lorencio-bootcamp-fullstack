@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+.cards-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+
+.box-section {
+    margin: 0 auto;
+    width: 500px;
+    border: 2px solid rgb(149 77 149);
+    padding: 1.2rem;
+}
+
+.cards-section div:nth-child(2) {
+    padding: 3rem;
+    margin: 50px 30px;
+    border-radius: 1.2rem;
+}
