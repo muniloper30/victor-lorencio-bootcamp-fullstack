@@ -18,7 +18,8 @@
   --color-card-header: #cac4c4;
 }
 
-body {
+
+    body {
   background-color: var(--color-background);
 }
 
@@ -138,7 +139,6 @@ input::placeholder {
     transform 0.5s,
     box-shadow 0.5s ease;
   transform-style: preserve-3d;
-  cursor: pointer;
 }
 
 .pokemon-card::before {
@@ -151,7 +151,7 @@ input::placeholder {
 
   /* Un degradado lineal que simula el reflejo de la luz */
   background: linear-gradient(
-    115deg,
+    125deg,
     transparent 0%,
     transparent 25%,
     rgb(255 255 255 / 0%) 45%,
