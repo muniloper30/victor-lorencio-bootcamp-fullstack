@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&family=Roboto:wght@300&family=Saira:ital,wght@0,100..900;1,100..900&family=Slabo+13px&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+/* Estilos globales */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Ubuntu, Roboto, sans-serif;
+}
+
+:root {
+  --color-background: #ffe628;
+  --color-text-id: #856b54;
+  --color-background-id: #cdcdc8;
+  --color-card-header: #cac4c4;
+}
+
+body {
+  background-color: var(--color-background);
+}
+
+/* Figuras del fondo (mejillas pikachu) */
+
+html::after {
+  content: ""; /* Obligatorio */
+  display: block;
+  position: fixed;
+  width: 150px;
+  z-index: -1;
+  height: 150px;
+  background-color: red;
+  border-radius: 50%;
+  translate: -50% 50%;
+  left: 0;
+  bottom: 0;
+}
+
+html::before {
+  content: ""; /* Obligatorio */
+  display: block;
+  z-index: -1;
+  position: fixed;
+  width: 150px;
+  height: 150px;
+  background-color: red;
+  border-radius: 50%;
+  translate: 50% 50%;
+  right: 0;
+  bottom: 0;
+}
+
+/* Figuras del fondo (orejas pikachu) */
+
+body::after {
+  content: "";
+  display: block;
+  position: fixed;
+  z-index: -1;
+  width: 100px;
+  height: 100px;
+  rotate: 45deg;
+  background-color: black;
+  right: 0;
+  top: 0;
+  translate: 50% -50%;
+}
+
+body::before {
+  content: "";
+  display: block;
+  position: fixed;
+  z-index: -1;
+  width: 100px;
+  height: 100px;
+  rotate: 45deg;
+  background-color: black;
+  left: 0;
+  top: 0;
+  translate: -50% -50%;
+}
+
+.main-container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Estilos header (input de búsqueda) */
+header {
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding: 0;
+}
+
+header > input {
+  margin: 0;
+  width: 100%;
+  padding: 1.2rem;
+  outline: none;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 1rem;
+}
+
+header > input:focus {
+  border-color: #f00; /* Rojo Pokémon */
+  box-shadow: 0 4px 12px rgb(255 0 0 / 20%);
+}
+
+input::placeholder {
+  color: #d6d5cf;
+  text-align: center;
+}
+
+/* Estilos main (sección pokemon) */
+
+.pokemon-section {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.2rem;
+}
+
+.pokemon-card {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 10px 10px rgb(0 0 0 / 29.4%);
+  border-radius: 0.2rem;
+  overflow: hidden;
+  transition:
+    transform 0.5s,
+    box-shadow 0.5s ease;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.pokemon-card::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+
+  /* Un degradado lineal que simula el reflejo de la luz */
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 25%,
+    rgb(255 255 255 / 0%) 45%,
+    rgb(255 255 255 / 40%) 50%,
+    rgb(255 255 255 / 30%) 55%,
+    transparent 75%,
+    transparent 100%
+  );
+  transition: all 0.6s ease;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Animación al hacer Hover */
+.pokemon-card:hover {
+  /* Efecto de inclinación fijo  */
+  transform: perspective(1000px) rotateX(10deg) rotateY(-5deg) translateY(-10px);
+  box-shadow: 0 25px 50px rgb(0 0 0 / 30%);
+}
+
+.pokemon-card:hover::before {
+  /* Destello de la card */
+  top: 0%;
+  left: 0%;
+}
+
+.pokemon-card__header {
+  border-radius: 0.2rem;
+  height: 150px;
+  width: 100%;
+  background-color: var(--color-card-header);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.pokemon-card__image {
+  background-size: cover;
+}
+
+.pokemon-card__id {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  background-color: var(--color-background-id);
+  border: 1px solid var(--color-card-header);
+  color: var(--color-text-id);
+}
+
+.pokemon-card__body {
+  padding: 1.5rem;
+  height: 150px;
+}
+
+.pokemon-card__name {
+  font-size: 1.3rem;
+}
+
+.pokemon-card__types {
+  margin-top: 0.3rem;
+}
+
+.pokemon-card__evolution {
+  border-left: 3px solid #634e3b;
+  padding-left: 0.2rem;
+  margin-top: 0.3rem;
+}
+
+.pokemon-card__body span {
+  border: 1px solid;
+  border-radius: 0.3rem;
+  color: var(--color-text-id);
+  padding: 0 0.2rem;
+}
+
+.pokemon-card__evolution p {
+  color: #797960;
+}
+
+.pokemon-card__evolution span {
+  border: none;
+  padding: 0;
+  color: black;
+  font-size: 1.3rem;
+}
