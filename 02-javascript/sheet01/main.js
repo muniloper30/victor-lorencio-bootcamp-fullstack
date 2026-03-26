@@ -144,7 +144,7 @@ if (edad >= 18 || autorizacion == true) {
 }
 
 /**
-Ejercicio 7. Mayor de edad o menor de edad
+Ejercicio 7. Estado de stock
 Declara variables para representar:
 - nombre de producto
 - cantidad disponible
@@ -165,7 +165,49 @@ if (cantidadProducto === 0) {
 } else if (cantidadProducto > 0 && cantidadProducto <= 5) {
   console.log(`Quedan pocas unidades
         Unidades de ${nombreProducto}: ${cantidadProducto}`);
-} else  {
-    console.log(`Producto disponible
+} else {
+  console.log(`Producto disponible
         Unidades de ${nombreProducto}: ${cantidadProducto}`);
 }
+
+
+/**
+Ejercicio 8. Descuento por cupón
+Simula una compra con estas variables:
+- precio base;
+- si el cliente tiene cupón;
+- si es cliente premium.
+
+Aplica esta lógica:
+si tiene cupón, descuento de 10 €;
+si no tiene cupón pero es premium, descuento de 5 €;
+si no cumple ninguna condición, no hay descuento.
+
+Muestra:
+precio base;
+descuento aplicado;
+precio final.
+ */
+
+
+const precioBase = 129.99
+const tieneCupon = true
+const clientePremium = true
+
+let descuento = 0
+
+if (tieneCupon){
+    descuento = 10
+    console.log("Se le aplica un descuento de " + descuento + "€")
+} else if (clientePremium) {
+    descuento  = 5
+    console.log("Por ser cliente premium tiene un descuento de " + descuento + "€")
+} else {
+    console.log("No dispone de ningun descuento")
+}
+
+const precioTotal = precioBase - descuento
+
+console.log(`Descuento aplicado: ${descuento} €
+   Precio total del producto: ${precioTotal.toFixed(2)} `)
+
