@@ -3,167 +3,241 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Pokedex pokemon"/>
+    <meta name="description" content="Pokedex pokemon" />
+    <link rel="stylesheet" href="style.css" />
     <title>Pokedex Pokemon</title>
   </head>
   <body>
-    <header>
-      <label for="search">Buscar Pokemon</label>
-      <input
-        type="search"
-        name="search"
-        id="search"
-        placeholder="Filtra pokemons por nombre..."
-      />
-    </header>
-    <br />
-    <main>
-      <!--Sección de cards de pokemons-->
-      <section id="cards-section">
+    <div class="main-container">
+      <header>
+        <label for="search"></label>
+        <input
+          type="search"
+          name="search"
+          id="search"
+          placeholder="Filtra pokemons por nombre..."
+        />
+      </header>
 
-        <article>
-          <div class="pokemon-card">
+      <!--Sección de cards de pokemons-->
+      <main class="pokemon-section">
+        <!--Card individual de pokemon-->
+        <article class="pokemon-card">
+          <!--Header de la card de pokemon-->
+          <div class="pokemon-card__header">
             <img
+              class="pokemon-card__image"
               src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
               alt="img-bulbasur"
             />
-            <p>ID/1</p>
-            <h4>Bulbasur</h4>
-            <ul>
-              <li>POISON</li>
-              <li>GRASS</li>
-            </ul>
-            <div>
-              <p>Evoluciona de <cite>ninguno</cite></p>
+            <span class="pokemon-card__id">ID / 1</span>
+          </div>
+
+          <!--Cuerpo de la card de pokemon-->
+          <div class="pokemon-card__body">
+            <h4 class="pokemon-card__name">Bulbasur</h4>
+            <div class="pokemon-card__types">
+              <span>POISON</span>
+              <span>GRASS</span>
             </div>
           </div>
         </article>
 
-        <article>
-          <div class="pokemon-card">
+        <!--Nueva card de pokemon -->
+        <article class="pokemon-card">
+          <!--Header de la card de pokemon-->
+          <div class="pokemon-card__header">
             <img
+              class="pokemon-card__image"
               src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"
-              alt="img-ivysaur"
+              alt="img-Ivysaur"
             />
-            <p>ID/2</p>
-            <h4>Ivysaur</h4>
-            <ul>
-              <li>POISON</li>
-              <li>GRASS</li>
-            </ul>
-            <div>
-              <p>Evoluciona de <cite>bulbasur</cite></p>
+            <span class="pokemon-card__id">ID / 2</span>
+          </div>
+
+          <!--Cuerpo de la card de pokemon-->
+          <div class="pokemon-card__body">
+            <h4 class="pokemon-card__name">Ivysaur</h4>
+            <div class="pokemon-card__types">
+              <span>POISON</span>
+              <span>GRASS</span>
+            </div>
+
+            <!--Footer de la card de pokemon-->
+            <div class="pokemon-card__evolution">
+              <p>Evoluciona de : <br /><span>Bulbasur</span></p>
             </div>
           </div>
         </article>
-        <article>
 
-          <div class="pokemon-card">
+        <!--Nueva card de pokemon-->
+        <article class="pokemon-card">
+          <!--Header de la card de pokemon-->
+          <div class="pokemon-card__header">
             <img
+              class="pokemon-card__image"
               src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
-              alt="img-venusaur"
+              alt="img-Venusaur"
             />
-            <p>ID/3</p>
-            <h4>Venusaur</h4>
-            <ul>
-              <li>POISON</li>
-              <li>GRASS</li>
-            </ul>
+            <span class="pokemon-card__id">ID / 3</span>
           </div>
-          <p>Evoluciona de <cite>Ivysur</cite></p>
+
+          <!--Cuerpo de la card de pokemon-->
+          <div class="pokemon-card__body">
+            <h4 class="pokemon-card__name">Venusaur</h4>
+            <div class="pokemon-card__types">
+              <span>POISON</span>
+              <span>GRASS</span>
+            </div>
+
+            <!--Footer de la card de pokemon-->
+            <div class="pokemon-card__evolution">
+              <p>Evoluciona de : <br /><span>Ivysaur</span></p>
+            </div>
+          </div>
         </article>
 
-        <article>
-          <div class="pokemon-card">
+        <!--Nueva card de pokemon-->
+        <article class="pokemon-card">
+          <!--Header de la card de pokemon-->
+          <div class="pokemon-card__header">
             <img
+              class="pokemon-card__image"
               src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
-              alt="img-charmander"
+              alt="img-Charmander"
             />
-            <p>ID/4</p>
-            <h4>Charmander</h4>
-            <ul>
-              <li>FIRE</li>
-            </ul>
+            <span class="pokemon-card__id">ID / 4</span>
           </div>
-          <p>Evoluciona de <cite>ninguno</cite></p>
-        </article>
 
-        <article>
-          <div class="pokemon-card">
+          <!--Cuerpo de la card de pokemon-->
+          <div class="pokemon-card__body">
+            <h4 class="pokemon-card__name">Charmander</h4>
+            <div class="pokemon-card__types">
+              <span>Fire</span>
+            </div>
+          </div>
+        </article>
+        <!--Nueva card de pokemon-->
+        <article class="pokemon-card">
+          <!--Header de la card de pokemon-->
+          <div class="pokemon-card__header">
             <img
+              class="pokemon-card__image"
               src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png"
-              alt="img-charmeleon"
+              alt="img-Charmeleon"
             />
-            <p>ID/5</p>
-            <h4>Charmeleon</h4>
-            <ul>
-              <li>FIRE</li>
-            </ul>
+            <span class="pokemon-card__id">ID / 5</span>
           </div>
-          <p>Evoluciona de <cite>charmander</cite></p>
-        </article>
 
-        <article>
-          <div class="pokemon-card">
+          <!--Cuerpo de la card de pokemon-->
+          <div class="pokemon-card__body">
+            <h4 class="pokemon-card__name">Charmeleon</h4>
+            <div class="pokemon-card__types">
+              <span>Fire</span>
+            </div>
+
+            <!--Footer de la card de pokemon-->
+            <div class="pokemon-card__evolution">
+              <p>Evoluciona de : <br /><span>Charmander</span></p>
+            </div>
+          </div>
+        </article>
+        <!--Nueva card de pokemon-->
+        <article class="pokemon-card">
+          <!--Header de la card de pokemon-->
+          <div class="pokemon-card__header">
             <img
+              class="pokemon-card__image"
               src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
-              alt="img-charizard"
+              alt="img-Charizard"
             />
-            <p>ID/6</p>
-            <h4>Charizard</h4>
-            <ul>
-              <li>FLYING</li>
-              <li>FIRE</li>
-            </ul>
+            <span class="pokemon-card__id">ID / 6</span>
           </div>
-          <p>Evoluciona de <cite>charmeleon</cite></p>
-        </article>
 
-        <article>
-          <div class="pokemon-card">
+          <!--Cuerpo de la card de pokemon-->
+          <div class="pokemon-card__body">
+            <h4 class="pokemon-card__name">Charizard</h4>
+            <div class="pokemon-card__types">
+              <span>Fire</span>
+            </div>
+
+            <!--Footer de la card de pokemon-->
+            <div class="pokemon-card__evolution">
+              <p>Evoluciona de : <br /><span>Charmeleon</span></p>
+            </div>
+          </div>
+        </article>
+        <!--Nueva card de pokemon-->
+        <article class="pokemon-card">
+          <!--Header de la card de pokemon-->
+          <div class="pokemon-card__header">
             <img
+              class="pokemon-card__image"
               src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"
-              alt="img-squirtle"
+              alt="img-Squirtle"
             />
-            <p>ID/7</p>
-            <h4>Squirtle</h4>
-            <ul>
-              <li>Water</li>
-            </ul>
+            <span class="pokemon-card__id">ID / 7</span>
           </div>
-          <p>Evoluciona de <cite>Ninguno</cite></p>
-        </article>
 
-        <article>
-          <div class="pokemon-card">
+          <!--Cuerpo de la card de pokemon-->
+          <div class="pokemon-card__body">
+            <h4 class="pokemon-card__name">Squirtle</h4>
+            <div class="pokemon-card__types">
+              <span>Water</span>
+            </div>
+          </div>
+        </article>
+        <!--Nueva card de pokemon-->
+        <article class="pokemon-card">
+          <!--Header de la card de pokemon-->
+          <div class="pokemon-card__header">
             <img
+              class="pokemon-card__image"
               src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png"
-              alt="img-blastoise"
+              alt="img-Wartortle"
             />
-            <p>ID/8</p>
-            <h4>Blastoise</h4>
-            <ul>
-              <li>Water</li>
-            </ul>
+            <span class="pokemon-card__id">ID / 8</span>
           </div>
-          <p>Evoluciona de <cite>Squirtle</cite></p>
-        </article>
 
-        <article>
-          <div class="pokemon-card">
-            <img
-              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png"
-              alt="img-bulbasur"
-            />
-            <p>ID/9</p>
-            <h4>Blastoise</h4>
-            <ul>
-              <li>Water</li>
-            </ul>
+          <!--Cuerpo de la card de pokemon-->
+          <div class="pokemon-card__body">
+            <h4 class="pokemon-card__name">Wartortle</h4>
+            <div class="pokemon-card__types">
+              <span>Water</span>
+            </div>
+
+            <!--Footer de la card de pokemon-->
+            <div class="pokemon-card__evolution">
+              <p>Evoluciona de : <br /><span>Squirtle</span></p>
+            </div>
           </div>
-          <p>Evoluciona de <cite>Wartortle</cite></p>
         </article>
-      </section>
-    </main>
+        <!--Nueva card de pokemon-->
+        <article class="pokemon-card">
+          <!--Header de la card de pokemon-->
+          <div class="pokemon-card__header">
+            <img
+              class="pokemon-card__image"
+              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png"
+              alt="img-Blastoise"
+            />
+            <span class="pokemon-card__id">ID / 9</span>
+          </div>
+
+          <!--Cuerpo de la card de pokemon-->
+          <div class="pokemon-card__body">
+            <h4 class="pokemon-card__name">Blastoise</h4>
+            <div class="pokemon-card__types">
+              <span>Water</span>
+            </div>
+
+            <!--Footer de la card de pokemon-->
+            <div class="pokemon-card__evolution">
+              <p>Evoluciona de : <br /><span>Wartortle</span></p>
+            </div>
+          </div>
+        </article>
+      </main>
+    </div>
   </body>
 </html>
