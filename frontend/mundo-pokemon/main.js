@@ -29,76 +29,110 @@
 // `;
 // });
 
-//Datos de los 9 pokemons iniciales
-const pokemonData = [
-  {
-    id: 1,
-    name: "Bulbasur",
-    types: ["POISON", "GRASS"],
-    img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-    evolvesFrom: null,
-  },
-  {
-    id: 2,
-    name: "Ivysaur",
-    types: ["POISON", "GRASS"],
-    img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
-    evolvesFrom: "Bulbasur",
-  },
-  {
-    id: 3,
-    name: "Venusaur",
-    types: ["POISON", "GRASS"],
-    img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
-    evolvesFrom: "Ivysaur",
-  },
-  {
-    id: 4,
-    name: "Charmander",
-    types: ["FIRE"],
-    img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-    evolvesFrom: null,
-  },
-  {
-    id: 5,
-    name: "Charmeleon",
-    types: ["FIRE"],
-    img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
-    evolvesFrom: "Charmander",
-  },
-  {
-    id: 6,
-    name: "Charizard",
-    types: ["FIRE"],
-    img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
-    evolvesFrom: "Charmeleon",
-  },
-  {
-    id: 7,
-    name: "Squirtle",
-    types: ["WATER"],
-    img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
-    evolvesFrom: null,
-  },
-  {
-    id: 8,
-    name: "Wartortle",
-    types: ["WATER"],
-    img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
-    evolvesFrom: "Squirtle",
-  },
-  {
-    id: 9,
-    name: "Blastoise",
-    types: ["WATER"],
-    img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
-    evolvesFrom: "Wartortle",
-  },
-];
+//////////////////////////////////////////
+
+//Importación de la función datos de la api de pokeapi
+
+// main.js
+import { obtenerPokemons, obtenerEvoluciones, obtenerDetallesPokemon } from "./api.js";
+
+obtenerPokemons().then((data) => {
+  data.results.forEach(async (pokemon) => {
+    //Guardamos el name de la especie
+    //Llamamos a la url genérica para traernos los detalles.
+    const detallesPokemons = await obtenerDetallesPokemon(pokemon.url)
+    //Llamamos a la segunda url de la petición para buscar si tienen evoluciones
+
+    const especie = await obtenerEvoluciones(pokemon.name); 
+    console.log(`IMG: ${detallesPokemons.img}`)
+    console.log(`ID: ${detallesPokemons.id}`)
+    console.log(`Name: ${detallesPokemons.name}`)
+    console.log(`types: ${detallesPokemons.types}`)
+
+
+    if (especie.evolves_from_species) {
+      console.log(
+        `${pokemon.name} evoluciona de ${especie.evolves_from_species.name}`,
+      ); //con evolves sacamos si evoluciona
+    } else {
+      console.log(`${pokemon.name} no tiene pre-evolución`);
+    }
+  });
+});
+
+//Array con los datos de los 9 pokemons iniciales
+// const pokemonData = [
+//   {
+//     id: 1,
+//     name: "Bulbasur",
+//     types: ["POISON", "GRASS"],
+//     img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+//     evolvesFrom: null,
+//   },
+//   {
+//     id: 2,
+//     name: "Ivysaur",
+//     types: ["POISON", "GRASS"],
+//     img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
+//     evolvesFrom: "Bulbasur",
+//   },
+//   {
+//     id: 3,
+//     name: "Venusaur",
+//     types: ["POISON", "GRASS"],
+//     img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
+//     evolvesFrom: "Ivysaur",
+//   },
+//   {
+//     id: 4,
+//     name: "Charmander",
+//     types: ["FIRE"],
+//     img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+//     evolvesFrom: null,
+//   },
+//   {
+//     id: 5,
+//     name: "Charmeleon",
+//     types: ["FIRE"],
+//     img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
+//     evolvesFrom: "Charmander",
+//   },
+//   {
+//     id: 6,
+//     name: "Charizard",
+//     types: ["FIRE"],
+//     img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+//     evolvesFrom: "Charmeleon",
+//   },
+//   {
+//     id: 7,
+//     name: "Squirtle",
+//     types: ["WATER"],
+//     img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+//     evolvesFrom: null,
+//   },
+//   {
+//     id: 8,
+//     name: "Wartortle",
+//     types: ["WATER"],
+//     img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
+//     evolvesFrom: "Squirtle",
+//   },
+//   {
+//     id: 9,
+//     name: "Blastoise",
+//     types: ["WATER"],
+//     img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
+//     evolvesFrom: "Wartortle",
+//   },
+// ];
+
+// const pokemonData = obtenerPokemons();
+
 // CONTENEDOR PADRE DE TODAS LAS CARDS
 const pokemonSection = document.querySelector(".pokemon-section");
 
-pokemonData.forEach((pokemon) => {
+const crearTarjetaPokemon = (pokemon) => {
   // CONTENEDOR PRINCIPAL
   const card = document.createElement("article");
   card.classList.add("pokemon-card");
@@ -127,49 +161,24 @@ pokemonData.forEach((pokemon) => {
   namePokemon.classList.add("pokemon-card__name");
   namePokemon.textContent = pokemon.name;
 
-  // CONTENEDOR TIPOS
-  const typesContainer = document.createElement("div");
-  typesContainer.classList.add("pokemon-card__types");
+  // CONTENEDOR TIPOS QUE LLAMA A LA FUNCION DE CREAR LOS TIPOS
+  const typesContainer = crearContenedorTipos(pokemon.types);
 
-  // Creamos cada tipo individualmente
-  pokemon.types.forEach((tipo) => {
-    const typeSpan = document.createElement("span");
-    typeSpan.textContent = tipo;
-    typesContainer.appendChild(typeSpan);
-  });
-
-  // CONTENEDOR PARA LAS EVOLUCIONES 
+  // CONTENEDOR PARA LAS EVOLUCIONES
   // Solo se crea si existe pre-evolución
   if (pokemon.evolvesFrom) {
-    const evolveDiv = document.createElement("div");
-    evolveDiv.classList.add("pokemon-card__evolution");
+    // Si existe se crea la evolución
+    const evolveDiv = crearSeccionEvolucion(pokemon.evolvesFrom);
 
-    const evolveText = document.createElement("p");
-    evolveText.textContent = "Evoluciona de: ";
-
-    const lineBreak = document.createElement("br");
-    
-    const evolveName = document.createElement("span");
-    evolveName.textContent = pokemon.evolvesFrom;
-
-    // UNION DE LAS PARTES EN EL TEXTO
-    evolveText.appendChild(lineBreak);
-    evolveText.appendChild(evolveName);
-    
-    // INCLUIMOS EL TEXTO COMPLETO EN EL DIV
-    evolveDiv.appendChild(evolveText);
-    
-    // Lo guardamos para añadirlo al body más tarde
+    // Se incluye en el div de la evolución
     bodyCard.appendChild(evolveDiv);
   }
 
-
   // INCLUIMOS LA IMG Y EL ID EN EL HEADER CARD
   headerCard.append(imgPokemon, idPokemon);
-  
 
   // INCLUIMOS EL NAME Y LOS TIPOS EN EL BODY CARD
-  
+
   bodyCard.insertBefore(namePokemon, bodyCard.firstChild); // Ponemos el nombre al principio del body
   bodyCard.insertBefore(typesContainer, namePokemon.nextSibling); // Los tipos después del nombre
 
@@ -177,6 +186,76 @@ pokemonData.forEach((pokemon) => {
   card.appendChild(headerCard);
   card.appendChild(bodyCard);
 
-  // INCLUIMOS LA CARD EN LA SECCIÓN PRINCIPAL
-  pokemonSection.appendChild(card);
+  return card; //Retorna la card completa
+};
+
+//FUNCIÓN PARA LOS TIPOS
+const crearContenedorTipos = (types) => {
+  const typesContainer = document.createElement("div");
+  typesContainer.classList.add("pokemon-card__types");
+
+  types.forEach((tipo) => {
+    const typeSpan = document.createElement("span");
+    typeSpan.textContent = tipo;
+    typesContainer.appendChild(typeSpan);
+  });
+
+  return typesContainer; // Devolvemos el div listo para insertar
+};
+
+//FUNCIÓN PARA LA EVOLUCIÓN
+const crearSeccionEvolucion = (nombreEvolucion) => {
+  // 1. Creamos el div principal de evolución
+  const evolveDiv = document.createElement("div");
+  evolveDiv.classList.add("pokemon-card__evolution");
+
+  // 2. Creamos el texto "Evoluciona de: "
+  const evolveText = document.createElement("p");
+  evolveText.textContent = "Evoluciona de: ";
+
+  // 3. Añadimos el nombre de la pre-evolución
+  const evolveName = document.createElement("span");
+  evolveName.textContent = nombreEvolucion;
+
+  // 4. Montamos las piezas
+  evolveText.appendChild(document.createElement("br"));
+  evolveText.appendChild(evolveName);
+  evolveDiv.appendChild(evolveText);
+
+  return evolveDiv; // 5. ¡Listo para entregar!
+};
+
+//CREAMOS LAS TARJETAS RECORRIENDO LOS DATOS DE LOS POKEMON (método con datos del array)
+// pokemonData.forEach((pokemon) => {
+//   const tarjetaNueva = crearTarjetaPokemon(pokemon);
+//   pokemonSection.appendChild(tarjetaNueva);
+// });
+
+
+
+// LLAMADA A LA API (Sustituye al forEach anterior)
+obtenerPokemons().then(async (data) => {
+  
+  for (const pokemon of data.results) {
+    // 1. Obtenemos los detalles usando tu función de api.js
+    const detalles = await obtenerDetallesPokemon(pokemon.url);
+    
+    // 2. Obtenemos la evolución (usando tu función de api.js)
+    const especie = await obtenerEvoluciones(pokemon.name);
+    
+    // 3. Preparamos el objeto para tu función 'crearTarjetaPokemon'
+    const pokemonFinal = {
+      id: detalles.id,
+      name: detalles.name,
+      img: detalles.img, // Asegúrate de que tu api.js devuelva 'img'
+      types: detalles.types,
+      evolvesFrom: especie.evolves_from_species ? especie.evolves_from_species.name : null
+    };
+
+    // 4. Usamos TU función de dibujado
+    const tarjetaNueva = crearTarjetaPokemon(pokemonFinal);
+    
+    // 5. Lo metemos en tu sección
+    pokemonSection.appendChild(tarjetaNueva);
+  }
 });
