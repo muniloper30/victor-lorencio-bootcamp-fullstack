@@ -44,7 +44,7 @@ const pedirDatos = async (url) => {
 //FUNCIÓN REFACTORIZADA OBTENERPOKEMONS
 export const obtenerPokemons = () => pedirDatos("https://pokeapi.co/api/v2/pokemon?offset=0&limit=20");
 
-//FUNCIÓN REFACTORIZADA PARA OBTENER LOS DETALLES DE LOS POKEMONS
+//FUNCIÓN REFACTORIZADA PARA OBTENER LOS DETALLES DE LOS POKEMONS (USO DE DESESTRUCTURACIÓN DE DATOS)
 export async function obtenerDetallesPokemon(url) {
   const detalles = await pedirDatos(url);
   if (!detalles) return null;
