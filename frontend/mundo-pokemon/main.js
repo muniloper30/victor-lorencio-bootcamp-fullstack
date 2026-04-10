@@ -34,21 +34,26 @@
 //Importación de la función datos de la api de pokeapi
 
 // main.js
-import { obtenerPokemons, obtenerEvoluciones, obtenerDetallesPokemon } from "./api.js";
+import {
+  obtenerPokemons,
+  obtenerEvoluciones,
+  obtenerDetallesPokemon,
+} from "./api.js";
+import { initSearch } from "./search.js";
 
 obtenerPokemons().then((data) => {
+  //Solo para el console log
   data.results.forEach(async (pokemon) => {
     //Guardamos el name de la especie
     //Llamamos a la url genérica para traernos los detalles.
-    const detallesPokemons = await obtenerDetallesPokemon(pokemon.url)
+    const detallesPokemons = await obtenerDetallesPokemon(pokemon.url);
     //Llamamos a la segunda url de la petición para buscar si tienen evoluciones
 
-    const especie = await obtenerEvoluciones(pokemon.name); 
-    console.log(`IMG: ${detallesPokemons.img}`)
-    console.log(`ID: ${detallesPokemons.id}`)
-    console.log(`Name: ${detallesPokemons.name}`)
-    console.log(`types: ${detallesPokemons.types}`)
-
+    const especie = await obtenerEvoluciones(pokemon.name);
+    console.log(`IMG: ${detallesPokemons.img}`);
+    console.log(`ID: ${detallesPokemons.id}`);
+    console.log(`Name: ${detallesPokemons.name}`);
+    console.log(`types: ${detallesPokemons.types}`);
 
     if (especie.evolves_from_species) {
       console.log(
@@ -131,6 +136,8 @@ obtenerPokemons().then((data) => {
 
 // CONTENEDOR PADRE DE TODAS LAS CARDS
 const pokemonSection = document.querySelector(".pokemon-section");
+//ARRAY PARA GUARDAR LOS POKEMONS
+const pokemonsGuardados = [];
 
 const crearTarjetaPokemon = (pokemon) => {
   // CONTENEDOR PRINCIPAL
@@ -231,31 +238,41 @@ const crearSeccionEvolucion = (nombreEvolucion) => {
 //   pokemonSection.appendChild(tarjetaNueva);
 // });
 
-
-
 // LLAMADA A LA API (Sustituye al forEach anterior)
 obtenerPokemons().then(async (data) => {
-  
   for (const pokemon of data.results) {
-    // 1. Obtenemos los detalles usando tu función de api.js
+    // 1. OBTENEMOS LOS DETALLES DE LOS POKEMON
     const detalles = await obtenerDetallesPokemon(pokemon.url);
-    
-    // 2. Obtenemos la evolución (usando tu función de api.js)
+
+    // 2.OBTENEMOS EL NOMBRE DE LA EVOLUCIÓN
     const especie = await obtenerEvoluciones(pokemon.name);
-    
-    // 3. Preparamos el objeto para tu función 'crearTarjetaPokemon'
+
+    // 3. OBJETO CON LOS VALORES DE LOS POKEMON
     const pokemonFinal = {
       id: detalles.id,
       name: detalles.name,
-      img: detalles.img, // Asegúrate de que tu api.js devuelva 'img'
+      img: detalles.img,
       types: detalles.types,
-      evolvesFrom: especie.evolves_from_species ? especie.evolves_from_species.name : null
+      evolvesFrom: especie.evolves_from_species
+        ? especie.evolves_from_species.name
+        : null,
     };
 
-    // 4. Usamos TU función de dibujado
+    pokemonsGuardados.push(pokemonFinal);
+    // 4. CREAMOS LAS TARJETAS
     const tarjetaNueva = crearTarjetaPokemon(pokemonFinal);
-    
-    // 5. Lo metemos en tu sección
+
+    // 5. LO METEMOS EN LA SECCIÓN
     pokemonSection.appendChild(tarjetaNueva);
   }
+  initSearch(pokemonsGuardados, (filtered) => {
+    pokemonSection.innerHTML = "";
+    filtered.forEach((p) => pokemonSection.appendChild(crearTarjetaPokemon(p)));
+  });
+});
+
+//PRUEBA PARA CAPTURAR EL INPUT DE SEARCH (consola)
+const search = document.getElementById("search");
+search.addEventListener("input", () => {
+  console.log("Valor actualizado");
 });

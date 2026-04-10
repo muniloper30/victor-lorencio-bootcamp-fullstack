@@ -25,7 +25,7 @@
 // }
 /////////////////////////////////////////////////
 
-//FUNCIÓN ATÓMICA QUE SE ENCARGA UNICAMENTE DE TRAER LOS DATOS DE LA URL QUE SE LE PASE
+//FUNCIÓN PURA QUE SE ENCARGA UNICAMENTE DE TRAER LOS DATOS DE LA URL QUE SE LE PASE
 const pedirDatos = async (url) => {
   try {
     const response = await fetch(url);
@@ -36,13 +36,13 @@ const pedirDatos = async (url) => {
     }
     return await response.json();
   } catch (error) {
-    console.log("Error al obtener los datos:", error);
+    console.error("Error al obtener los datos:", error);
     return null;
   }
 };
 
 //FUNCIÓN REFACTORIZADA OBTENERPOKEMONS
-export const obtenerPokemons = () => pedirDatos("https://pokeapi.co/api/v2/pokemon?offset=0&limit=20");
+export const obtenerPokemons = () => pedirDatos("https://pokeapi.co/api/v2/pokemon?offset=0&limit=300");
 
 //FUNCIÓN REFACTORIZADA PARA OBTENER LOS DETALLES DE LOS POKEMONS (USO DE DESESTRUCTURACIÓN DE DATOS)
 export async function obtenerDetallesPokemon(url) {
