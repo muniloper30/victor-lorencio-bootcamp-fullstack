@@ -7,3 +7,8 @@ export const ProfileCard = ({name, role, city}: {name: string; role: string; cit
         </section>
     )
 }
+
+// Errores detectados :
+// La firma del componente al ser typescript se pierde , hay que identificar los tipos de las props
+// Coma faltante entre role y city
+// Cuando usamos props para desestructurar no hace falta usar props.name

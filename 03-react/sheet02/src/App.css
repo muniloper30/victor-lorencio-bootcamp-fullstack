@@ -1,8 +1,32 @@
-/* Clase para el ejercicio nº3 */
+/* Clases para el ejercicio nº3 */
 main {
   display: flex;
   gap: 2rem;
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
+}
+
+/* Clases para ele jercicio nº5 */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.modulo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modulo-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  padding: 3rem;
+  margin-top: 3rem;
 }
