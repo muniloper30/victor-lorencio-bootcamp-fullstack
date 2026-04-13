@@ -30,3 +30,12 @@ main {
   padding: 3rem;
   margin-top: 3rem;
 }
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem;
+}
