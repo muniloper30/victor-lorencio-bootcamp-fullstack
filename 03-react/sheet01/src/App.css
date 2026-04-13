@@ -1,24 +1,132 @@
-#center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
-
 .hero-section {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   align-items: center;
   justify-content: center;
-  width: 30rem;
+  width: 100%;
+  padding: 1.5rem;
+  text-align: center;
+  background-color: rgb(114 46 46);
+  box-shadow: 0 4px 15px rgb(255 255 255);
 }
+
+.hero-info {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.hero-info a {
+  padding: 0.5rem;
+  color: orange;
+  text-decoration: none;
+  border: 2px solid rgb(255 255 255);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.hero-info a:hover {
+  color: white;
+  background-color: orange;
+  transform: scale(1.05);
+}
+
+/* Feature Section Styles */
+
+.exercise-nueve {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.feature-section {
+  display: flex;
+  gap: 3rem;
+  justify-content: space-around;
+  max-width: 70rem;
+}
+
+.rules {
+  padding-top: 1.5rem;
+  margin: 0 auto;
+}
+
+.rules-header {
+  padding: 1rem;
+}
+
+.rules .list-rules {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  color: white;
+}
+
+.list-rules li {
+  padding: 0.5rem;
+  text-align: center;
+  background-color: orange;
+  border-radius: 0.6rem;
+}
+
+.recomendaciones {
+  padding-top: 1.5rem;
+  margin: 0 auto;
+}
+
+.recomendaciones-header {
+  padding: 1rem;
+}
+
+.list-recommend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.list-recommend li {
+  padding: 1.5rem;
+  font-size: 1rem;
+  background-color: rgb(88 79 79);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 15px rgb(205 80 13);
+}
+
+.stack-section {
+  padding-top: 3rem;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-card {
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between;
+  padding: 2.5rem;
+}
+
+.info-card-footer {
+  padding: 1rem;
+}
+
+.info-card-footer button {
+  padding: 0.3rem;
+  font-size: 1rem;
+}
+
+.footer {
+  display: block; 
+  width: 100%;
+  padding: 1.5rem 0;
+  text-align: center;
+  background-color: orange
+};
