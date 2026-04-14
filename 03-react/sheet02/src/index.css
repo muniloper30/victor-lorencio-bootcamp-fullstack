@@ -1,14 +1,5 @@
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  font-family: Roboto, sans-serif;
-  list-style: none;
-}
+@import "tailwindcss";
 
-body {
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+
+
+
