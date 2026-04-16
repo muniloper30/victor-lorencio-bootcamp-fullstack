@@ -4,9 +4,12 @@
 // import { Exercise08 } from "./exercise08/Exercise08"
 // import { Exercise11 } from "./exercise11/Exercise11"
 
-import { Exercise07 } from "./exercise07/Exercise07"
+// import { Exercise07 } from "./exercise07/Exercise07"
 
 // import { Exercise12 } from "./exercise12/Exercise12"
+
+// import { Formulario } from "./PRUEB/Prueba"
+import { Prueba2 } from "./PRUEB/Prueba2"
 
 function App() {
 
@@ -18,7 +21,12 @@ function App() {
      {/* <Exercise08></Exercise08> */}
      {/* <Exercise11></Exercise11> */}
      {/* <Exercise12></Exercise12> */}
-    <Exercise07></Exercise07>
+    {/* <Exercise07></Exercise07> */}
+<Prueba2></Prueba2>
+{/* 
+Pruebas */}
+    {/* <Formulario></Formulario> */}
+
     </>
   )
 }
