@@ -9,7 +9,7 @@
 // import { Exercise12 } from "./exercise12/Exercise12"
 
 // import { Formulario } from "./PRUEB/Prueba"
-import { Prueba2 } from "./PRUEB/Prueba2"
+import { Prueba2 } from "./PRUEBA/Prueba2"
 
 function App() {
 
