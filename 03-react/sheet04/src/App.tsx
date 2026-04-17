@@ -1,5 +1,6 @@
-import { Exercise09 } from './Exercise03/Exercise03'
+// import { Exercise03 } from './Exercise03/Exercise03'
 
+import { Exercise05 } from './Exercise05/Exercise05'
 import './App.css'
 
 function App() {
@@ -7,7 +8,8 @@ function App() {
 
   return (
     <>
-  <Exercise09></Exercise09>
+  {/* <Exercise03></Exercise03> */}
+  <Exercise05></Exercise05>
     </>
   )
 }
