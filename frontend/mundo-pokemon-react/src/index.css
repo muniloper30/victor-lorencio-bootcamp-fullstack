@@ -1,1 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&family=Roboto:wght@300&family=Saira:ital,wght@0,100..900;1,100..900&family=Slabo+13px&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 @import "tailwindcss";
+
+:root {
+  --color-background: #ffe628;
+  --color-text-id: #856b54;
+  --color-background-id: #cdcdc8;
+  --color-card-header: #cac4c4;
+}
+
+@layer utilities {
+  /* Fondo principal de la app */
+  .bg-poke-main {
+    background-color: var(--color-background);
+  }
+
+  /* Color para el texto de los IDs (#001, etc) */
+  .text-poke-id {
+    color: var(--color-text-id);
+  }
+
+  /* Fondo para los badges o contenedores de ID */
+  .bg-poke-id {
+    background-color: var(--color-background-id);
+  }
+
+  /* Fondo para la cabecera de las tarjetas */
+  .bg-poke-header {
+    background-color: var(--color-card-header);
+  }
+}
+
+@layer base {
+  html {
+    /* Aquí aplicas la familia por defecto a toda la app */
+    font-family: "Ubuntu", "Roboto", sans-serif;
+  }
+}
+
+body {
+  background-color: var(--color-background);
+}
