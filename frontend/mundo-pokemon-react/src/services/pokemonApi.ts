@@ -49,9 +49,12 @@ interface PokeApiDetail {
  * Solo nos interesa la URL de la cadena evolutiva
  */
 interface PokeApiSpecies {
-    evolution_chain: {
-        url: string;
-    };
+  evolution_chain: {
+    url: string;
+  };
+  evolves_from_species: {  //  esto es lo que nos da el pokemon previo
+    name: string;
+  } | null; // null si es el primer eslabón (ej. Bulbasaur no evoluciona de nadie)
 }
 
 // ============================================================
