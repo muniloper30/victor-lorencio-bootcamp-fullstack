@@ -72,6 +72,17 @@ export interface Pokemon {
     types: string[]; // ✅ solo los nombres, sin el ruido de la API
 }
 
+
+/**
+ * Propiedades para el componente Header.
+ * Permite comunicar el valor de búsqueda desde el input del Header hacia el componente padre.
+ */
+export interface HeaderProps {
+    /** Función callback que se ejecuta cada vez que el usuario realiza una búsqueda */
+    onSearch: (value: string) => void;
+}
+
+
 // ============================================================
 // FUNCIÓN BASE GENÉRICA
 // ============================================================

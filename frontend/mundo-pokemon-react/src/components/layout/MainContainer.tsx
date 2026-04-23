@@ -14,7 +14,10 @@ export const MainContainer = () => {
     // 2. Estado para saber si estamos cargando (útil para mostrar un spinner)
     const [cargando, setCargando] = useState(true);
 
-    // 3. useEffect se ejecuta UNA vez al montar el componente (por el array vacío [])
+     // 3. Estado para filtrar las búsquedas
+    const [search, setSearch]    = useState('')               
+
+    // 4. useEffect se ejecuta UNA vez al montar el componente (por el array vacío [])
     useEffect(() => {
 
         // Necesitas una función async dentro porque useEffect no puede ser async directamente
@@ -46,13 +49,17 @@ export const MainContainer = () => {
             <p>Cargando Pokemons...</p>
 
     </div>;
+// Estado derivado: se recalcula en cada render
+    const pokemonsVisibles = pokemons.filter((pokemon) =>
+        pokemon.name.toLowerCase().includes(search.toLowerCase())
+    )
 
 
 
     return (
         <div className="max-w-[950px] px-4 mx-auto">
-            <Header></Header>
-            <PokemonGrid pokemons={pokemons} />
+            <Header onSearch={setSearch}></Header>
+            <PokemonGrid pokemons={pokemonsVisibles} />
         </div>
     )
 }
