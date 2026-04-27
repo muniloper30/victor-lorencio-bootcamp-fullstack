@@ -1,15 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, } from "react";
+import { useNavigate } from "react-router-dom";
 import type { Pokemon } from "../../services/pokemonApi";
 import { obtenerEvoluciones } from "../../services/pokemonApi";
-// 1. Defines las props que espera recibir el componente
+// 1. Definimos las props que espera recibir el componente
 interface PokemonCardProps {
     pokemon: Pokemon;
 }
 
-// 2. Desestructuras las props directamente
+// 2. Desestructución de las props directamente
 export const PokemonCard = ({ pokemon }: PokemonCardProps) => {
 
     const [evolucionPrevia, setEvolucionPrevia] = useState<string | null>(null);
+    const navigate = useNavigate();
 
     // Este useEffect es independiente por cada card
     useEffect(() => {
@@ -24,10 +26,10 @@ export const PokemonCard = ({ pokemon }: PokemonCardProps) => {
 
 
     return (
-        <div className="w-full overflow-hidden bg-white rounded-sm shadow-[0_10px_10px_rgba(0,0,0,0.294)] transition-all duration-500 hover:shadow-[0_25px_50px_rgba(0,0,0,0.3)] hover:[transform:perspective(1000px)_rotateX(10deg)_rotateY(-5deg)_translateY(-10px)]">
+        <div onClick={() => navigate(`/pokemon/${pokemon.name}`)} className="pb-5 w-full overflow-hidden bg-white rounded-sm shadow-[0_10px_10px_rgba(0,0,0,0.294)] transition-all duration-500 hover:shadow-[0_25px_50px_rgba(0,0,0,0.3)] hover:[transform:perspective(1000px)_rotateX(10deg)_rotateY(-5deg)_translateY(-10px)] animate-fade-in cursor-pointer">
 
             {/* HEADER — fondo gris, altura fija, imagen centrada */}
-            <header className="relative flex flex-col items-center justify-center w-full h-[150px] bg-[#cac4c4] rounded-sm">
+            <header className="relative flex flex-col items-center justify-center w-full h-37.5 bg-[#cac4c4] rounded-sm">
                 <img
                     src={pokemon.img}
                     alt={pokemon.name}
@@ -40,7 +42,7 @@ export const PokemonCard = ({ pokemon }: PokemonCardProps) => {
             </header>
 
             {/* BODY — nombre, tipos, evolución */}
-            <div className="h-[150px] p-6">
+            <div className="h-37.5 p-6">
                 <p className="text-[1.3rem]">{pokemon.name}</p>
 
                 {/* Tipos */}
@@ -57,7 +59,7 @@ export const PokemonCard = ({ pokemon }: PokemonCardProps) => {
 
                 {/* Evolución — solo se pinta si tiene evolución previa */}
                 {evolucionPrevia && (
-                    <div className="pl-[0.2rem] mt-[0.3rem] border-l-[3px] border-[#634e3b]">
+                    <div className="pl-[0.2rem] mt-[0.3rem] border-l-[3px] border-[#634e3b] animate-fade-in">
                         <p className="text-[#797960] text-sm">Evoluciona de:</p>
                         <span className="text-[1.3rem] text-black">{evolucionPrevia}</span>
                     </div>

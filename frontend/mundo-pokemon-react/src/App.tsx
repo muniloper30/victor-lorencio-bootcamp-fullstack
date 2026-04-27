@@ -1,8 +1,11 @@
 
 import './App.css'
-
 import { MainContainer } from './components/layout/MainContainer'
+import { PokemonModal } from './components/pokemon/PokemonModal'
 import { BackgroundDecorations } from './components/ui/BackgroundDecorations'
+import { Route, Routes } from 'react-router-dom'
+
+
 function App() {
 
 
@@ -15,15 +18,29 @@ function App() {
   // }, []);
 
 
-
-
+// Al recargar desde el modal vuelve al grid normal
+ if (window.location.pathname !== '/') {
+    window.location.replace('/')
+  return 
+ }
 
 
 
   return (
     <>
       <BackgroundDecorations></BackgroundDecorations>
-      <MainContainer></MainContainer>
+
+      <Routes>
+        <Route path='/' element={<MainContainer></MainContainer>}></Route>
+        <Route path='/pokemon/:name' element={
+
+          <>
+            <MainContainer></MainContainer>
+            <PokemonModal></PokemonModal>
+          </>
+
+        }></Route>
+      </Routes>
 
       {/* <div>
       {pokemons.map((pokemon) => (

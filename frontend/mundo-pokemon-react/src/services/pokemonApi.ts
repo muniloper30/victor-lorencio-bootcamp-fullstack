@@ -8,7 +8,7 @@
  */
 interface PokeApiListItem {
     name: string;
-    url: string; // ✅ string simple, NO array
+    url: string; // 
 }
 
 /**
@@ -36,14 +36,13 @@ interface PokeApiType {
  * Solo tipamos los campos que vamos a usar (no hace falta tipar los 30+ campos)
  */
 interface PokeApiDetail {
-    id: number;
-    name: string;
-    sprites: {
-        front_default: string;
-    };
-    types: PokeApiType[]; // ✅ usamos la interface anterior, adiós al `any`
+  id: number;
+  name: string;
+  sprites: { front_default: string };
+  types: PokeApiType[];
+  height: number;   
+  weight: number;   
 }
-
 /**
  * Respuesta cruda del endpoint /pokemon-species/:name
  * Solo nos interesa la URL de la cadena evolutiva
@@ -52,6 +51,10 @@ interface PokeApiSpecies {
     evolution_chain: {
         url: string;
     };
+    evolves_from_species?: {
+        name: string;
+        url: string;
+    } | null; // Puede ser null si es la primera etapa evolutiva
 }
 
 // ============================================================
@@ -66,13 +69,16 @@ export interface Pokemon {
     id: number;
     name: string;
     img: string;
-    types: string[]; // ✅ solo los nombres, sin el ruido de la API
+    types: string[]; //  solo los nombres, sin el ruido de la API
+    height: number;
+    weight: number;
 }
 
 
 /**
  * Propiedades para el componente Header.
- * Permite comunicar el valor de búsqueda desde el input del Header hacia el componente padre.
+ * Permite comunicar el valor de búsqueda desde el input del Header hacia el componente padre
+ * ELEVACIÓN DE ESTADO.
  */
 export interface HeaderProps {
     /** Función callback que se ejecuta cada vez que el usuario realiza una búsqueda */
@@ -110,7 +116,7 @@ const pedirDatos = async <T>(url: string): Promise<T | null> => {
 
 /**
  * Devuelve la lista con nombre + URL de los primeros 300 pokemons.
- * ✅ Ahora usa PokeApiListResponse en lugar de any o el typo anterior.
+ * Ahora usa PokeApiListResponse en lugar de any o el typo anterior.
  */
 export const obtenerPokemons = () =>
     pedirDatos<PokeApiListResponse>("https://pokeapi.co/api/v2/pokemon?offset=0&limit=300");
@@ -120,26 +126,28 @@ export const obtenerPokemons = () =>
  * al formato limpio Pokemon que usa tu app.
  *
  * Patrón: PokeApiDetail (crudo) → Pokemon (limpio)
- * ✅ Sin ningún `any`
+ * Sin ningún `any`
  */
 export async function obtenerDetallesPokemon(url: string): Promise<Pokemon | null> {
-    const detalles = await pedirDatos<PokeApiDetail>(url); // ✅ tipado, no any
+    const detalles = await pedirDatos<PokeApiDetail>(url); // tipado, no any
 
     if (!detalles) return null;
 
-    const { id, name, sprites, types } = detalles; // desestructuración tipada
+    const { id, name, sprites, types, height, weight } = detalles; // desestructuración tipada
 
     return {
         id,
         name,
         img: sprites.front_default,
-        types: types.map((item) => item.type.name), // ✅ item ya es PokeApiType, no necesita `any`
+        types: types.map((item) => item.type.name), // item ya es PokeApiType, no necesita `any`
+        height,   // ← añadir
+        weight,   // ← añadir
     };
 }
 
 /**
  * Pide la especie de un pokemon para obtener la URL de su cadena evolutiva.
- * ✅ Tipado con PokeApiSpecies en lugar de any.
+ * Tipado con PokeApiSpecies en lugar de any.
  *
  * Uso en app.tsx:
  *   const especie = await obtenerEvoluciones("charizard");
